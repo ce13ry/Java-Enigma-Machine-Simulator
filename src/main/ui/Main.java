@@ -9,7 +9,7 @@ public class Main {
         kaviET.addSetting2();
         kaviET.addSetting3();
 
-        System.out.println(kaviET.cipher("yo man, the password for my et is ilikedogs123"));
-        System.out.println(kaviET.cipher("inil9yzsp f1lzuk90.0c,ouyow0gvmgq5w 7 s5paicag"));
+        System.out.println(kaviET.cipher("abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz"));
+        System.out.println(kaviET.cipher(".u,quxyi0uq88h89sps6x8j, xm82p7yhe fw 22fkou99r hlt4o"));
     }
 }

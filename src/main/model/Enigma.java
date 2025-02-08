@@ -45,7 +45,7 @@ public class Enigma {
 
         //reset all rotars
         for(Rotar r : rotars){
-            r.reset(r);
+            Rotar.reset(r);
             iterations = 0;
         }
         
