@@ -90,6 +90,10 @@ public class EnigmaApp {
     }
 
     private void cipher(Enigma enigma) {
+        if (enigma.getRotars().isEmpty()) {
+            System.out.println("No settings to cipher");
+            return;
+        }
         System.out.println("Enter the string to be ciphered: ");
         String cipher = input.nextLine();
         System.out.println(enigma.cipher(cipher));

@@ -68,7 +68,7 @@ public class RotarTest {
     void rotateOnceTest() {
         rotar.rotate();       
         for (int i = 0; i < rotar.getSetting().length; i++) {
-            assertEquals(rotar.getSetting()[i], "7zgxb08ue3tl2vk,o5ns9i1q rhd4.ymafc6wjp".split("")[i]);     
+            assertEquals(rotar.getSetting()[i], "7JzgSxbAK0?D8uYReEH3tl2vkZB,o!FX5nsIG9COTi1qNU rMhWd4.yLmaPfcQ6wVjp".split("")[i]);     
         }
     }
 
@@ -76,12 +76,12 @@ public class RotarTest {
     void rotateMultipleTest() {
         rotar.rotate();
         for (int i = 0; i < rotar.getSetting().length; i++) {
-            assertEquals(rotar.getSetting()[i], "7zgxb08ue3tl2vk,o5ns9i1q rhd4.ymafc6wjp".split("")[i]);     
+            assertEquals(rotar.getSetting()[i], "7JzgSxbAK0?D8uYReEH3tl2vkZB,o!FX5nsIG9COTi1qNU rMhWd4.yLmaPfcQ6wVjp".split("")[i]);     
         }
 
         rotar.rotate();
         for (int i = 0; i < rotar.getSetting().length; i++) {
-            assertEquals(rotar.getSetting()[i], "zgxb08ue3tl2vk,o5ns9i1q rhd4.ymafc6wjp7".split("")[i]);     
+            assertEquals(rotar.getSetting()[i], "JzgSxbAK0?D8uYReEH3tl2vkZB,o!FX5nsIG9COTi1qNU rMhWd4.yLmaPfcQ6wVjp7".split("")[i]);     
         }
     }
 

@@ -3,7 +3,6 @@ package model;
 import java.util.*;
 
 public class Enigma {
-    int iterations = 0;
 
     private ArrayList<Rotar> rotars;
 
@@ -51,10 +50,14 @@ public class Enigma {
         // reset all rotars
         for (Rotar r : rotars) {
             Rotar.reset(r);
-            iterations = 0;
         }
 
         String[] input = in.split("");
+
+        if (invalid(input)) {
+            return "**INVALID CHARACTER**";
+        }
+
         int pos = 0;
 
         for (String c : input) {
@@ -78,10 +81,9 @@ public class Enigma {
             }
 
             // rotates
-            update(iterations, 0);
+            update(0);
 
             pos++;
-            iterations++;
 
         }
 
@@ -90,16 +92,14 @@ public class Enigma {
 
     // Effect: Rotates nth rotar a whole loop before rotating n+1th rotar
     // Modifies rotars
-    public void update(int iterations, int n) {
+    public void update(int n) {
+        
+        getRotars().get(n).rotate();
 
-        if (iterations < Rotar.NUMOFCHARS - 1) {
-            for (int i = 0; i <= n; i++) {
-                rotars.get(i).rotate();
+        if (getRotars().get(n).getRotatePosition() == 0) {
+            if (n < getRotars().size() - 1) {
+                update(n + 1);
             }
-        } else if (n < rotars.size() - 1) {
-            update(iterations - Rotar.NUMOFCHARS - 1, n + 1);
-        } else {
-            update(iterations - Rotar.NUMOFCHARS - 1, n);
         }
     }
 
@@ -112,6 +112,8 @@ public class Enigma {
         }
         return -1;
     }
+
+
 
     // Effect: Returns the default position of the given letter
     public int defaultPosition(String letter) {
@@ -134,5 +136,14 @@ public class Enigma {
 
     public ArrayList<Rotar> getRotars() {
         return rotars;
+    }
+
+    public boolean invalid(String[] input) {
+        for (String s : input) {
+            if (!ALPHABET.contains(s)) {
+                return true;
+            }
+        } 
+        return false;
     }
 }

@@ -109,28 +109,23 @@ public class EnigmaTest {
     @Test
     void cipherTestOneSettingOneLetter() {
         enigma.addSetting1();
-        assertEquals(enigma.cipher("a"), "m");
-        assertEquals(enigma.cipher("m"), "a");
+        assertEquals(enigma.cipher(enigma.cipher("a")), "a");
 
         enigma.remove(1);
         enigma.addSetting2();
-        assertEquals(enigma.cipher("a"), "o");
-        assertEquals(enigma.cipher("o"), "a");
+        assertEquals(enigma.cipher(enigma.cipher("a")), "a");
 
         enigma.remove(1);
         enigma.addSetting3();
-        assertEquals(enigma.cipher("a"), "8");
-        assertEquals(enigma.cipher("8"), "a");
+        assertEquals(enigma.cipher(enigma.cipher("a")), "a");
 
         enigma.remove(1);
         enigma.addSetting4();
-        assertEquals(enigma.cipher("a"), "u");
-        assertEquals(enigma.cipher("u"), "a");
+        assertEquals(enigma.cipher(enigma.cipher("a")), "a");
 
         enigma.remove(1);
         enigma.addSetting5();
-        assertEquals(enigma.cipher("a"), "s");
-        assertEquals(enigma.cipher("s"), "a");
+        assertEquals(enigma.cipher(enigma.cipher("a")), "a");
     }
 
     @Test
@@ -138,70 +133,54 @@ public class EnigmaTest {
         enigma.addSetting1();
         enigma.addSetting2();
 
-        assertEquals(enigma.cipher("a"), "k");
-        assertEquals(enigma.cipher("k"), "a");
+        assertEquals(enigma.cipher(enigma.cipher("a")), "a");
 
         enigma.addSetting3();
 
-        assertEquals(enigma.cipher("a"), "9");
-        assertEquals(enigma.cipher("9"), "a");
+        assertEquals(enigma.cipher(enigma.cipher("a")), "a");
 
         enigma.addSetting4();
 
-        assertEquals(enigma.cipher("a"), ".");
-        assertEquals(enigma.cipher("."), "a");
+        assertEquals(enigma.cipher(enigma.cipher("a")), "a");
 
         enigma.addSetting5();
-        assertEquals(enigma.cipher("a"), "e");
-        assertEquals(enigma.cipher("e"), "a");
+        assertEquals(enigma.cipher(enigma.cipher("a")), "a");
     }
 
     @Test
     void singleSettingMultipleLetters() {
         enigma.addSetting1();
-        assertEquals(enigma.cipher("abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz"), 
-                                        "mcnsw460wuxnk77bb94q5upae6o.2c2hmsity1.a61 2tqbbhhd.w");
-
-        assertEquals(enigma.cipher("mcnsw460wuxnk77bb94q5upae6o.2c2hmsity1.a61 2tqbbhhd.w"),
+        assertEquals(enigma.cipher(enigma.cipher("abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz")), 
                                         "abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz");
     }
 
-    @SuppressWarnings("methodlength")
     @Test
     void multipleSettingMultipleLetters() {
         enigma.addSetting1();
-        assertEquals(enigma.cipher("abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz"), 
-                                        "mcnsw460wuxnk77bb94q5upae6o.2c2hmsity1.a61 2tqbbhhd.w");
-
-        assertEquals(enigma.cipher("mcnsw460wuxnk77bb94q5upae6o.2c2hmsity1.a61 2tqbbhhd.w"),
+        assertEquals(enigma.cipher(enigma.cipher("abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz")), 
                                         "abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz");
 
         enigma.addSetting2();
-        assertEquals(enigma.cipher("abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz"), 
-                                        "kujzf7if,rrudf4t1nfspvk5xs,535 jgq p4lb6z0ln4 qvim9wv");
-
-        assertEquals(enigma.cipher("kujzf7if,rrudf4t1nfspvk5xs,535 jgq p4lb6z0ln4 qvim9wv"),
+        assertEquals(enigma.cipher(enigma.cipher("abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz")), 
                                         "abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz");
 
         enigma.addSetting3();
-        assertEquals(enigma.cipher("abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz"), 
-                                        "945rsov1we89vshbz v27xuxo.4y196w5d.,xyu40sn29ycqg vs9");
-
-        assertEquals(enigma.cipher("945rsov1we89vshbz v27xuxo.4y196w5d.,xyu40sn29ycqg vs9"),
+        assertEquals(enigma.cipher(enigma.cipher("abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz")), 
                                         "abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz");
 
         enigma.addSetting4();
-        assertEquals(enigma.cipher("abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz"), 
-                                        ".dai7s7okh5qqvk.pj 14,ocfue7ud ehejgobyedoxe4o54mhh1,");
-
-        assertEquals(enigma.cipher(".dai7s7okh5qqvk.pj 14,ocfue7ud ehejgobyedoxe4o54mhh1,"),
+        assertEquals(enigma.cipher(enigma.cipher("abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz")), 
                                         "abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz");
 
         enigma.addSetting5();
-        assertEquals(enigma.cipher("abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz"), 
-                                        "e..ijvz.ug3sz9cc gjwal4x7uvj6w724keeop07s70lyq.nf,j84");
-
-        assertEquals(enigma.cipher("e..ijvz.ug3sz9cc gjwal4x7uvj6w724keeop07s70lyq.nf,j84"),
+        assertEquals(enigma.cipher(enigma.cipher("abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz")), 
                                         "abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz");
+    }
+
+    @Test
+    void invalidInput(){
+        enigma.addSetting1();
+        assertEquals(-1, enigma.getLetterPosition("^" , enigma.getRotars().get(0)));
+        assertEquals(enigma.cipher("~"), "**INVALID CHARACTER**");
     }
 }

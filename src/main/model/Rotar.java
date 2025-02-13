@@ -4,6 +4,7 @@ public class Rotar {
 
     private String[] setting;
     private int settingNum;
+    private int rotationPosition;
 
     static final String[] SETTING1 = "p7JzgSxbAK0?D8uYReEH3tl2vkZB,o!FX5nsIG9COTi1qNU rMhWd4.yLmaPfcQ6wVj".split("");
     static final String[] SETTING2 = "tN7jQr6ObyGpxYU,E!fgM2F Tn5VLDXv1?leJ3z.AdKCk0SsuWiIBaZ4hH8qPcoR9wm".split("");
@@ -18,33 +19,30 @@ public class Rotar {
     // Requires: setting is an integer between 1 and 5
     @SuppressWarnings("methodlength")
     public Rotar(int setting) {
+        this.setting = new String[NUMOFCHARS];
         switch (setting) {
             case 1:
-                this.setting = new String[NUMOFCHARS];
                 copy(this.setting, SETTING1);
                 settingNum = 1;
                 break;
             case 2:
-                this.setting = new String[NUMOFCHARS];
                 copy(this.setting, SETTING2);
                 settingNum = 2;
                 break;
             case 3:
-                this.setting = new String[NUMOFCHARS];
                 copy(this.setting, SETTING3);
                 settingNum = 3;
                 break;
             case 4:
-                this.setting = new String[NUMOFCHARS];
                 copy(this.setting, SETTING4);
                 settingNum = 4;
                 break;
             case 5:
-                this.setting = new String[NUMOFCHARS];
                 copy(this.setting, SETTING5);
                 settingNum = 5;
                 break;
         }
+        rotationPosition = 0;
     }
 
     // Effect: Resets the rotar to its default setting
@@ -68,6 +66,7 @@ public class Rotar {
                 copy(r.setting, SETTING5);
                 break;
         }
+        r.rotationPosition = 0;
     }
 
     // Effect: copies default SETTING to setting
@@ -86,6 +85,10 @@ public class Rotar {
             setting[i] = setting[i + 1];
         }
         setting[setting.length - 1] = first;
+        rotationPosition++;
+        if (rotationPosition > NUMOFCHARS) {
+            rotationPosition = 0;
+        }
     }
 
     public int getSettingNum() {
@@ -98,5 +101,9 @@ public class Rotar {
 
     public String getLetter(int i) {
         return setting[i];
+    }
+
+    public int getRotatePosition() {
+        return this.rotationPosition;
     }
 }
