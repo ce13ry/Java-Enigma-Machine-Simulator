@@ -41,10 +41,10 @@ public class Enigma {
         rotars.remove(rotars.get(i - 1));
     }
 
-    // Requires: Characters in the input string are in the alphabet
     // Effect: Encrypts/Decrypts the input string
     // Modifies: this
     // Modifies: rotars
+    // Requires: Characters in the input string are in the alphabet
     public String cipher(String in) {
 
         // reset all rotars
@@ -90,7 +90,7 @@ public class Enigma {
         return toString(input);
     }
 
-    // Effect: Rotates nth rotar a whole loop before rotating n+1th rotar
+    // Effect: Rotates nth rotar a whole loop before rotating n+1th rotar once
     // Modifies rotars
     public void update(int n) {
         
@@ -138,6 +138,7 @@ public class Enigma {
         return rotars;
     }
 
+    // Effect: Returns true if the input contains invalid characters
     public boolean invalid(String[] input) {
         for (String s : input) {
             if (!ALPHABET.contains(s)) {

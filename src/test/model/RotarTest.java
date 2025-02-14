@@ -15,7 +15,7 @@ public class RotarTest {
     }
 
     @Test
-    void settring1Test() {
+    void setting1Test() {
         rotar = new Rotar(1);
         assertEquals(rotar.getSettingNum(), 1);
 
@@ -25,7 +25,7 @@ public class RotarTest {
     }
 
     @Test
-    void settring2Test() {
+    void setting2Test() {
         rotar = new Rotar(2);
         assertEquals(rotar.getSettingNum(), 2);
 
@@ -35,7 +35,7 @@ public class RotarTest {
     }
 
     @Test
-    void settring3Test() {
+    void setting3Test() {
         rotar = new Rotar(3);
         assertEquals(rotar.getSettingNum(), 3);
 
@@ -45,7 +45,7 @@ public class RotarTest {
     }
 
     @Test
-    void settring4Test() {
+    void setting4Test() {
         rotar = new Rotar(4);
         assertEquals(rotar.getSettingNum(), 4);
 
@@ -55,12 +55,20 @@ public class RotarTest {
     }
 
     @Test
-    void settring5Test() {
+    void setting5Test() {
         rotar = new Rotar(5);
         assertEquals(rotar.getSettingNum(), 5);
         
         for (int i = 0; i < rotar.getSetting().length; i++) {
             assertEquals(rotar.getSetting()[i], Rotar.SETTING5[i]);     
+        }
+    }
+
+    @Test
+    void wrongSettingTest() {
+        rotar = new Rotar(6);
+        for (int i = 0; i < rotar.getSetting().length; i++) {
+            assertEquals(rotar.getSetting()[i], null);     
         }
     }
 

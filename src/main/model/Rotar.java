@@ -41,6 +41,8 @@ public class Rotar {
                 copy(this.setting, SETTING5);
                 settingNum = 5;
                 break;
+            default:
+                break;
         }
         rotationPosition = 0;
     }

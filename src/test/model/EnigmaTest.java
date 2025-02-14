@@ -150,31 +150,31 @@ public class EnigmaTest {
     @Test
     void singleSettingMultipleLetters() {
         enigma.addSetting1();
-        assertEquals(enigma.cipher(enigma.cipher("abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz")), 
-                                        "abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz");
+        assertEquals(enigma.cipher(enigma.cipher("abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz0123456789.,?!")), 
+                                        "abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz0123456789.,?!");
     }
 
     @Test
     void multipleSettingMultipleLetters() {
         enigma.addSetting1();
-        assertEquals(enigma.cipher(enigma.cipher("abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz")), 
-                                        "abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz");
+        assertEquals(enigma.cipher(enigma.cipher("ABCabcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz0123456789.,?!")), 
+                                        "ABCabcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz0123456789.,?!");
 
         enigma.addSetting2();
-        assertEquals(enigma.cipher(enigma.cipher("abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz")), 
-                                        "abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz");
+        assertEquals(enigma.cipher(enigma.cipher("ABCabcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz0123456789.,?!")), 
+                                        "ABCabcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz0123456789.,?!");
 
         enigma.addSetting3();
-        assertEquals(enigma.cipher(enigma.cipher("abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz")), 
-                                        "abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz");
+        assertEquals(enigma.cipher(enigma.cipher("ABCabcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz0123456789.,?!")), 
+                                        "ABCabcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz0123456789.,?!");
 
         enigma.addSetting4();
-        assertEquals(enigma.cipher(enigma.cipher("abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz")), 
-                                        "abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz");
+        assertEquals(enigma.cipher(enigma.cipher("ABCabcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz0123456789.,?!")), 
+                                        "ABCabcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz0123456789.,?!");
 
         enigma.addSetting5();
-        assertEquals(enigma.cipher(enigma.cipher("abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz")), 
-                                        "abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz");
+        assertEquals(enigma.cipher(enigma.cipher("ABCabcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz0123456789.,?!")), 
+                                        "ABCabcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz0123456789.,?!");
     }
 
     @Test
