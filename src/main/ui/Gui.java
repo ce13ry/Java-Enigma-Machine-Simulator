@@ -17,6 +17,7 @@ public class Gui implements ActionListener {
     private static final String JSON_STORE = "./data/enigma.json";
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
+    private Boolean saved;
     private JFrame frame;
     private JPanel mainPanel;
     private JPanel enigmaPanel;
@@ -69,6 +70,7 @@ public class Gui implements ActionListener {
         rotar3 = 0;
         rotar4 = 0;
         rotar5 = 0;
+        saved = true;
         mainFrame();
     }
 
@@ -133,11 +135,9 @@ public class Gui implements ActionListener {
     private void addNotebook() {
         mainPanel.setLayout(null);
     
-        ImageIcon notebookIcon = new ImageIcon("./data/openNotebook.png");
+        ImageIcon notebookIcon = new ImageIcon("./data/notebook.png");
         Image notebookImage = notebookIcon.getImage();
-        int notebookWidth = 400;
-        int notebookHeight = 400;
-        Image resizedNotebook = notebookImage.getScaledInstance(notebookWidth, notebookHeight, Image.SCALE_SMOOTH);
+        Image resizedNotebook = notebookImage.getScaledInstance(400, 400, Image.SCALE_SMOOTH);
         ImageIcon resizedNotebookIcon = new ImageIcon(resizedNotebook);
     
         notebook = new JLabel(resizedNotebookIcon);
@@ -150,7 +150,7 @@ public class Gui implements ActionListener {
         textInput.setBounds(390, 200, 150, 200);
         textInput.setOpaque(false);
         textInput.setBackground(new Color(0, 0, 0, 0));
-        textInput.setFont(new Font("Arial", Font.PLAIN, 16));
+        textInput.setFont(new Font("Arial", Font.PLAIN, 12));
         textInput.setCaretColor(Color.BLACK);
         textInput.setForeground(Color.BLACK);
         textInput.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -168,9 +168,9 @@ public class Gui implements ActionListener {
         output.setLineWrap(true);
         output.setWrapStyleWord(true);
         output.setBounds(560, 200, 150, 300);
-        output.setOpaque(false);  // Make background transparent
-        output.setEditable(false); // Prevent user edits
-        output.setFont(new Font("Arial", Font.PLAIN, 15));
+        output.setOpaque(false);
+        output.setEditable(false);
+        output.setFont(new Font("Arial", Font.PLAIN, 12));
         output.setForeground(Color.BLACK);
         mainPanel.add(output);
         mainPanel.setComponentZOrder(output, 0);
@@ -428,6 +428,7 @@ public class Gui implements ActionListener {
         } else if (e.getSource() == backButton) {
             mainPanel.setVisible(true);
             enigmaPanel.setVisible(false);
+            output();
         } else if (e.getSource() == rotarButton1) {
             addRotar(1, rotar1);
         } else if (e.getSource() == rotarButton2) {
@@ -441,12 +442,18 @@ public class Gui implements ActionListener {
         } else if (e.getSource() == resetButton) {
             enigma.getRotars().clear();
             rotarLabel();
+            saved = false;
         } else if (e.getSource() == save) {
             saveEnigma();
+            saved = true;
         } else if (e.getSource() == load) {
             loadEnigma();
             rotarLabel();
+            saved = false;
         } else if (e.getSource() == quitButton) {
+            if (!saved) {
+                savePrompt();
+            }
             System.exit(0);
         } else if (e.getSource() == rotar1up) {
             if (rotar1 >= Rotar.getNumOfChars()) {
@@ -524,6 +531,7 @@ public class Gui implements ActionListener {
     private void addRotar(int setting, int initial) {
         enigma.addSetting(setting, initial);
         rotarLabel();
+        saved = false;
     }
 
     private String cipher(String text) {
@@ -542,6 +550,14 @@ public class Gui implements ActionListener {
             settings += r.getSettingNum() + " (" + r.getInitialPosition() + ")" + ", ";
         }
         return settings;
+    }
+
+    private void savePrompt() {
+        int result = JOptionPane.showConfirmDialog(frame, "Do you want to save your settings?", "Save",
+                JOptionPane.YES_NO_OPTION);
+        if (result == JOptionPane.YES_OPTION) {
+            saveEnigma();
+        }
     }
 
     private void saveEnigma() {
