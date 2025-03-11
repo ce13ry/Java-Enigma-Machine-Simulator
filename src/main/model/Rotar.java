@@ -125,6 +125,9 @@ public class Rotar {
         return this.initialPosition;
     }
 
+    public static int getNumOfChars() {
+        return NUMOFCHARS;
+    }
 
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
