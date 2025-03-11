@@ -50,6 +50,7 @@ public class Enigma {
         int pos = 0;
 
         for (String c : input) {
+
             int character = defaultPosition(c);
 
             // forward direction
@@ -98,8 +99,6 @@ public class Enigma {
         }
         return -1;
     }
-
-
 
     // Effect: Returns the default position of the given letter
     public int defaultPosition(String letter) {

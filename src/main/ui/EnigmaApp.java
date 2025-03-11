@@ -74,6 +74,7 @@ public class EnigmaApp {
     }
 
     // EFFECTS: processes the user command
+    @SuppressWarnings("methodlength")
     private void processCommand(String command) { 
         switch (command) {
             case "s":
