@@ -12,6 +12,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+// Represents the graphical user interface for the Enigma Machine
 public class Gui implements ActionListener {
     Enigma enigma = new Enigma();
     private static final String JSON_STORE = "./data/enigma.json";
@@ -62,6 +63,7 @@ public class Gui implements ActionListener {
     private JLabel rotars;
     private JTextArea output;
 
+    // EFFECTS: creates a new GUI
     public Gui() {
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
@@ -74,6 +76,7 @@ public class Gui implements ActionListener {
         mainFrame();
     }
 
+    // Effects: Creates the main frame for the GUI
     private void mainFrame() {
         frame = new JFrame("Engima Machine");
         mainPanel = new JPanel();
@@ -94,6 +97,7 @@ public class Gui implements ActionListener {
         frame.setVisible(true);
     }
 
+    // Effects: Creates the panel for the Enigma Machine
     private void enigmaPanel() {
         enigmaPanel = new JPanel();
 
@@ -116,6 +120,7 @@ public class Gui implements ActionListener {
         frame.setVisible(true);
     }
 
+    // Effects: Creates the button for the Enigma settings
     private void enigmaButton() {
         ImageIcon enigmaIcon = new ImageIcon("./data/enigma.png");
         Image enigmaImage = enigmaIcon.getImage();
@@ -132,6 +137,7 @@ public class Gui implements ActionListener {
         mainPanel.add(enigmaButton);
     }
 
+    // Effects: Creates the notebook and input/output text areas
     private void notebook() {
         mainPanel.setLayout(null);
     
@@ -148,6 +154,7 @@ public class Gui implements ActionListener {
         addOutput();
     }
 
+    // Effects: Creates the input text area
     private void addInput() {
         textInput = new JTextArea(10, 10);
         textInput.setLineWrap(true);
@@ -170,6 +177,7 @@ public class Gui implements ActionListener {
         mainPanel.repaint();
     }
 
+    // Effects: Creates the output text area
     private void addOutput() {
         output = new JTextArea();
         output.setLineWrap(true);
@@ -185,14 +193,15 @@ public class Gui implements ActionListener {
         output();
     }
 
+    // Effects: Creates the main buttons for the GUI
     private void addMainButtons() {
-
         quitButton = new JButton("Quit");
         quitButton.setBounds(0, 0, 80, 25);
         quitButton.addActionListener(this);
         mainPanel.add(quitButton);
     }
 
+    // Effects: Creates the buttons for the Enigma Machine
     private void addEnigmaButtons() {
         
         backButton();
@@ -209,6 +218,7 @@ public class Gui implements ActionListener {
         rotarNumLabel();
     }
 
+    // Effects: Creates the back button
     private void backButton() {
         backButton = new JButton("Back");
         backButton.setBounds(0, 0, 80, 25);
@@ -216,6 +226,7 @@ public class Gui implements ActionListener {
         enigmaPanel.add(backButton);
     }
 
+    // Effects: Creates the reset button
     private void resetButton() {
         resetButton = new JButton("Reset");
         resetButton.setBounds(0, 500, 80, 25);
@@ -223,6 +234,7 @@ public class Gui implements ActionListener {
         enigmaPanel.add(resetButton);
     }
 
+    // Effects: Creates the save button
     private void saveButton() {
         save = new JButton("Save");
         save.setBounds(0, 450, 80, 25);
@@ -230,6 +242,7 @@ public class Gui implements ActionListener {
         enigmaPanel.add(save);
     }
 
+    // Effects: Creates the load button
     private void loadButton() {
         load = new JButton("Load");
         load.setBounds(0, 475, 80, 25);
@@ -237,6 +250,7 @@ public class Gui implements ActionListener {
         enigmaPanel.add(load);
     }
 
+    // Effects: Creates the up buttons for the rotars
     private void upButtons() {
         ImageIcon upIcon = new ImageIcon("./data/up.png");
         Image upImage = upIcon.getImage();
@@ -289,6 +303,7 @@ public class Gui implements ActionListener {
         enigmaPanel.add(rotar5up);
     }
 
+    // Effects: Creates the down buttons for the rotars
     private void downButtons() {
         ImageIcon downIcon = new ImageIcon("./data/down.png");
         Image downImage = downIcon.getImage();
@@ -341,6 +356,7 @@ public class Gui implements ActionListener {
         enigmaPanel.add(rotar5down);
     }
 
+    // Effects: Creates the rotar buttons
     private void rotarButtons() {
         ImageIcon rotarIcon = new ImageIcon("./data/rotar.png");
         Image rotarImage = rotarIcon.getImage();
@@ -393,6 +409,7 @@ public class Gui implements ActionListener {
         enigmaPanel.add(rotarButton5);
     }
 
+    // Effects: Creates the initial position labels for the rotars
     private void rotarInitLabel() {
         rotar1init = new JLabel(Integer.toString(rotar1));
         rotar1init.setBounds(105, 110, 60, 30);
@@ -420,33 +437,40 @@ public class Gui implements ActionListener {
         enigmaPanel.add(rotar5init);
     }
 
+    // Effects: Creates the number labels for the rotars
     private void rotarNumLabel() {
         one = new JLabel();
         one.setText("I");
         one.setBounds(210, 0, 40, 40);
+        one.setFont(new Font("Times New Roman", Font.PLAIN, 20));
         enigmaPanel.add(one);
 
         two = new JLabel();
         two.setText("II");
         two.setBounds(440, 0, 40, 40);
+        two.setFont(new Font("Times New Roman", Font.PLAIN, 20));
         enigmaPanel.add(two);
         
         three = new JLabel();
         three.setText("III");
         three.setBounds(670, 0, 40, 40);
+        three.setFont(new Font("Times New Roman", Font.PLAIN, 20));
         enigmaPanel.add(three);
 
         four = new JLabel();
         four.setText("IV");
         four.setBounds(310, 225, 40, 40);
+        four.setFont(new Font("Times New Roman", Font.PLAIN, 20));
         enigmaPanel.add(four);
 
         five = new JLabel();
         five.setText("V");
         five.setBounds(540, 225, 40, 40);
+        five.setFont(new Font("Times New Roman", Font.PLAIN, 20));
         enigmaPanel.add(five);
     }
 
+    // Effects: Updates the output text area
     private void output() {
         String text = textInput.getText();
         output.setText(cipher(text));
@@ -454,20 +478,20 @@ public class Gui implements ActionListener {
         mainPanel.repaint();
     }
 
+    // Effects: Updates the rotar label
     private void rotarLabel() {
         rotars.setText("Rotors: " + settings());
         enigmaPanel.revalidate();
         enigmaPanel.repaint();
     }
 
+    // Effects: Handles the actions of the buttons
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == enigmaButton) {
             enigmaPanel();
         } else if (e.getSource() == backButton) {
-            mainPanel.setVisible(true);
-            enigmaPanel.setVisible(false);
-            output();
+            back();
         } else if (e.getSource() == rotarButton1) {
             addRotar(1, rotar1);
         } else if (e.getSource() == rotarButton2) {
@@ -479,100 +503,181 @@ public class Gui implements ActionListener {
         } else if (e.getSource() == rotarButton5) {
             addRotar(5, rotar5);
         } else if (e.getSource() == resetButton) {
-            enigma.getRotars().clear();
-            rotarLabel();
-            saved = false;
+            reset();
         } else if (e.getSource() == save) {
-            saveEnigma();
-            saved = true;
+            save();
         } else if (e.getSource() == load) {
-            loadEnigma();
-            rotarLabel();
-            saved = false;
+            load();
         } else if (e.getSource() == quitButton) {
-            if (!saved) {
-                savePrompt();
-            }
-            System.exit(0);
+            quit();
         } else if (e.getSource() == rotar1up) {
-            if (rotar1 >= Rotar.getNumOfChars()) {
-                rotar1 = 0;
-            } else {
-                rotar1++;
-            }
-            rotar1init.setText(Integer.toString(rotar1));
+            rotar1up();
         } else if (e.getSource() == rotar1down) {
-            if (rotar1 <= 0) {
-                rotar1 = Rotar.getNumOfChars();
-            } else {
-                rotar1--;
-            }
-            rotar1init.setText(Integer.toString(rotar1));
+            rotar1down();
         } else if (e.getSource() == rotar2up) {
-            if (rotar2 >= Rotar.getNumOfChars()) {
-                rotar2 = 0;
-            } else {
-                rotar2++;
-            }
-            rotar2init.setText(Integer.toString(rotar2));
+            rotar2up();
         } else if (e.getSource() == rotar2down) {
-            if (rotar2 <= 0) {
-                rotar2 = Rotar.getNumOfChars();
-            } else {
-                rotar2--;
-            }
-            rotar2init.setText(Integer.toString(rotar2));
+            rotar2down();
         } else if (e.getSource() == rotar3up) {
-            if (rotar3 >= Rotar.getNumOfChars()) {
-                rotar3 = 0;
-            } else {
-                rotar3++;
-            }
-            rotar3init.setText(Integer.toString(rotar3));
+           rotar3up();
         } else if (e.getSource() == rotar3down) {
-            if (rotar3 <= 0) {
-                rotar3 = Rotar.getNumOfChars();
-            } else {
-                rotar3--;
-            }
-            rotar3init.setText(Integer.toString(rotar3));
+            rotar3down();
         } else if (e.getSource() == rotar4up) {
-            if (rotar4 >= Rotar.getNumOfChars()) {
-                rotar4 = 0;
-            } else {
-                rotar4++;
-            }
-            rotar4init.setText(Integer.toString(rotar4));
+            rotar4up();
         } else if (e.getSource() == rotar4down) {
-            if (rotar4 <= 0) {
-                rotar4 = Rotar.getNumOfChars();
-            } else {
-                rotar4--;
-            }
-            rotar4init.setText(Integer.toString(rotar4));
+            rotar4down();
         } else if (e.getSource() == rotar5up) {
-            if (rotar5 >= Rotar.getNumOfChars()) {
-                rotar5 = 0;
-            } else {
-                rotar5++;
-            }
-            rotar5init.setText(Integer.toString(rotar5));
+            rotar5up();
         } else if (e.getSource() == rotar5down) {
-            if (rotar5 <= 0) {
-                rotar5 = Rotar.getNumOfChars();
-            } else {
-                rotar5--;
-            }
-            rotar5init.setText(Integer.toString(rotar5));
+            rotar5down();
         }
     }
 
+    // Effects: Returns to main panel
+    private void back() {
+        mainPanel.setVisible(true);
+        enigmaPanel.setVisible(false);
+        output();
+    }
+
+    // Effects: Resets the Enigma Machine
+    // Modifies: enigma
+    private void reset() {
+        enigma.getRotars().clear();
+        rotarLabel();
+        saved = false;
+    }
+
+    // Effects: Saves the Enigma Machine
+    private void save() {
+        saveEnigma();
+        saved = true;
+    }
+
+    // Effects: Loads the Enigma Machine
+    private void load() {
+        loadEnigma();
+        rotarLabel();
+        saved = false;
+    }
+
+    // Effects: Quits the program
+    private void quit() {
+        if (!saved) {
+            savePrompt();
+        }
+        System.exit(0);
+    }
+
+    // Effects: Increases rotar 1 inital position by one
+    private void rotar1up() {
+        if (rotar1 >= Rotar.getNumOfChars()) {
+            rotar1 = 0;
+        } else {
+            rotar1++;
+        }
+        rotar1init.setText(Integer.toString(rotar1));
+    }
+
+    // Effects: Decreases rotar 1 inital position by one
+    private void rotar1down() {
+        if (rotar1 <= 0) {
+            rotar1 = Rotar.getNumOfChars();
+        } else {
+            rotar1--;
+        }
+        rotar1init.setText(Integer.toString(rotar1));
+    }
+
+    // Effects: Increases rotar 2 inital position by one
+    private void rotar2up() {
+        if (rotar2 >= Rotar.getNumOfChars()) {
+            rotar2 = 0;
+        } else {
+            rotar2++;
+        }
+        rotar2init.setText(Integer.toString(rotar2));
+    }
+
+    // Effects: Decreases rotar 2 inital position by one
+    private void rotar2down() {
+        if (rotar2 <= 0) {
+            rotar2 = Rotar.getNumOfChars();
+        } else {
+            rotar2--;
+        }
+        rotar2init.setText(Integer.toString(rotar2));
+    }
+
+    // Effects: Increases rotar 3 inital position by one
+    private void rotar3up() {
+        if (rotar3 >= Rotar.getNumOfChars()) {
+            rotar3 = 0;
+        } else {
+            rotar3++;
+        }
+        rotar3init.setText(Integer.toString(rotar3));
+    }
+
+    // Effects: Decreases rotar 3 inital position by one
+    private void rotar3down() {
+        if (rotar3 <= 0) {
+            rotar3 = Rotar.getNumOfChars();
+        } else {
+            rotar3--;
+        }
+        rotar3init.setText(Integer.toString(rotar3));
+    }
+
+    // Effects: Increases rotar 4 inital position by one
+    private void rotar4up() {
+        if (rotar4 >= Rotar.getNumOfChars()) {
+            rotar4 = 0;
+        } else {
+            rotar4++;
+        }
+        rotar4init.setText(Integer.toString(rotar4));
+    }
+
+    // Effects: Decreases rotar 4 inital position by one
+    private void rotar4down() {
+        if (rotar4 <= 0) {
+            rotar4 = Rotar.getNumOfChars();
+        } else {
+            rotar4--;
+        }
+        rotar4init.setText(Integer.toString(rotar4));
+    }
+
+    // Effects: Increases rotar 5 inital position by one
+    private void rotar5up() {
+        if (rotar5 >= Rotar.getNumOfChars()) {
+            rotar5 = 0;
+        } else {
+            rotar5++;
+        }
+        rotar5init.setText(Integer.toString(rotar5));
+    }
+
+    // Effects: Decreases rotar 5 inital position by one
+    private void rotar5down() {
+        if (rotar5 <= 0) {
+            rotar5 = Rotar.getNumOfChars();
+        } else {
+            rotar5--;
+        }
+        rotar5init.setText(Integer.toString(rotar5));
+    }
+
+    // Effects: Adds a rotar to the Enigma Machine
+    // Modifies: enigma
     private void addRotar(int setting, int initial) {
         enigma.addSetting(setting, initial);
         rotarLabel();
         saved = false;
     }
 
+    // Effects: Ciphers the text
     private String cipher(String text) {
         if (enigma.getRotars().isEmpty()) {
             System.out.println("No settings to cipher");
@@ -583,6 +688,7 @@ public class Gui implements ActionListener {
         return enigma.cipher(text);
     }
 
+    // Effects: Returns the settings of the rotars
     private String settings() {
         String settings = "";
         for (Rotar r : enigma.getRotars()) {
@@ -591,6 +697,7 @@ public class Gui implements ActionListener {
         return settings;
     }
 
+    // Effects: Prompts the user to save their settings
     private void savePrompt() {
         int result = JOptionPane.showConfirmDialog(frame, "Do you want to save your settings?", "Save",
                 JOptionPane.YES_NO_OPTION);
@@ -599,6 +706,7 @@ public class Gui implements ActionListener {
         }
     }
 
+    // Effects: Saves the Enigma Machine to file
     private void saveEnigma() {
         try {
             jsonWriter.open();
@@ -610,6 +718,7 @@ public class Gui implements ActionListener {
         }
     }
 
+    // Effects: Loads the Enigma Machine from file
     private void loadEnigma() {
         try {
             enigma = jsonReader.read();
