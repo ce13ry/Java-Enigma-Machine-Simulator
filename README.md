@@ -25,3 +25,13 @@ This project is of much interest to me because of the complexity and intricacy o
 - **As a user, I want to be able to view the settings used in my encryption.**
 - **As a user, I want to be able to save settings to file.**
 - **As a user, I want to be able to load previous settings from file.**
+
+# Instructions for End User
+- Click on enigma machine to access settings
+- Up and down arrows next to each rotar controls initial position for each rotar
+- Click rotar to add rotar to enigma machine
+- Click reset to clear all rotars
+- Click save to save rotars
+- Click load to load rotars
+- Click back to return to main page
+- Type on left page of the notebook to cipher text
