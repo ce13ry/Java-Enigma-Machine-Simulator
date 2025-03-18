@@ -211,9 +211,7 @@ public class Gui implements ActionListener {
 
         upButtons();
         downButtons();
-
         rotarButtons();
-
         rotarInitLabel();
         rotarNumLabel();
     }
@@ -257,44 +255,60 @@ public class Gui implements ActionListener {
         Image resizedUp = upImage.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
         ImageIcon resizedUpIcon = new ImageIcon(resizedUp);
 
+        upOne(resizedUpIcon);
+        upTwo(resizedUpIcon);
+        upThree(resizedUpIcon);
+        upFour(resizedUpIcon);
+        upFive(resizedUpIcon);
+    }
+
+    private void upOne(ImageIcon img) {
         rotar1up = new JButton();
-        rotar1up.setIcon(resizedUpIcon);
+        rotar1up.setIcon(img);
         rotar1up.setBounds(90, 50, 50, 50);
         rotar1up.setBorderPainted(false);
         rotar1up.setContentAreaFilled(false);
         rotar1up.setFocusPainted(false);
         rotar1up.addActionListener(this);
         enigmaPanel.add(rotar1up);
+    }
 
+    private void upTwo(ImageIcon img) {
         rotar2up = new JButton();
-        rotar2up.setIcon(resizedUpIcon);
+        rotar2up.setIcon(img);
         rotar2up.setBounds(320, 50, 50, 50);
         rotar2up.setBorderPainted(false);
         rotar2up.setContentAreaFilled(false);
         rotar2up.setFocusPainted(false);
         rotar2up.addActionListener(this);
         enigmaPanel.add(rotar2up);
+    }
 
+    private void upThree(ImageIcon img) {
         rotar3up = new JButton();
-        rotar3up.setIcon(resizedUpIcon);
+        rotar3up.setIcon(img);
         rotar3up.setBounds(550, 50, 50, 50);
         rotar3up.setBorderPainted(false);
         rotar3up.setContentAreaFilled(false);
         rotar3up.setFocusPainted(false);
         rotar3up.addActionListener(this);
         enigmaPanel.add(rotar3up);
+    }
         
+    private void upFour(ImageIcon img) {
         rotar4up = new JButton();
-        rotar4up.setIcon(resizedUpIcon);
+        rotar4up.setIcon(img);
         rotar4up.setBounds(190, 275, 50, 50);
         rotar4up.setBorderPainted(false);
         rotar4up.setContentAreaFilled(false);
         rotar4up.setFocusPainted(false);
         rotar4up.addActionListener(this);
         enigmaPanel.add(rotar4up);
+    }
 
+    private void upFive(ImageIcon img) {
         rotar5up = new JButton();
-        rotar5up.setIcon(resizedUpIcon);
+        rotar5up.setIcon(img);
         rotar5up.setBounds(420, 275, 50, 50);
         rotar5up.setBorderPainted(false);
         rotar5up.setContentAreaFilled(false);
@@ -309,45 +323,66 @@ public class Gui implements ActionListener {
         Image downImage = downIcon.getImage();
         Image resizedDown = downImage.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
         ImageIcon resizedDownIcon = new ImageIcon(resizedDown);
-        
+
+        downOne(resizedDownIcon);
+        downTwo(resizedDownIcon);
+        downThree(resizedDownIcon);
+        downFour(resizedDownIcon);
+        downFive(resizedDownIcon);
+    }
+
+    // Effects: add down button 1
+    private void downOne(ImageIcon img) {
         rotar1down = new JButton();
-        rotar1down.setIcon(resizedDownIcon);
+        rotar1down.setIcon(img);
         rotar1down.setBounds(90, 150, 50, 50);
         rotar1down.setBorderPainted(false);
         rotar1down.setContentAreaFilled(false);
         rotar1down.setFocusPainted(false);
         rotar1down.addActionListener(this);
         enigmaPanel.add(rotar1down);
+    }
         
+    // Effects: add down button 2
+    private void downTwo(ImageIcon img) {
         rotar2down = new JButton();
-        rotar2down.setIcon(resizedDownIcon);
+        rotar2down.setIcon(img);
         rotar2down.setBounds(320, 150, 50, 50);
         rotar2down.setBorderPainted(false);
         rotar2down.setContentAreaFilled(false);
         rotar2down.setFocusPainted(false);
         rotar2down.addActionListener(this);
         enigmaPanel.add(rotar2down);
-        
+    }
+
+    // Effects: add down button 3
+    private void downThree(ImageIcon img) {
         rotar3down = new JButton();
-        rotar3down.setIcon(resizedDownIcon);
+        rotar3down.setIcon(img);
         rotar3down.setBounds(550, 150, 50, 50);
         rotar3down.setBorderPainted(false);
         rotar3down.setContentAreaFilled(false);
         rotar3down.setFocusPainted(false);
         rotar3down.addActionListener(this);
         enigmaPanel.add(rotar3down);
+    }
         
+    // Effects: add down button 4
+    private void downFour(ImageIcon img) {
         rotar4down = new JButton();
-        rotar4down.setIcon(resizedDownIcon);
+        rotar4down.setIcon(img);
         rotar4down.setBounds(190, 375, 50, 50);
         rotar4down.setBorderPainted(false);
         rotar4down.setContentAreaFilled(false);
         rotar4down.setFocusPainted(false);
         rotar4down.addActionListener(this);
         enigmaPanel.add(rotar4down);
-        
+    }
+    
+    // Effects: add down button 5
+    private void downFive(ImageIcon img) {
         rotar5down = new JButton();
-        rotar5down.setIcon(resizedDownIcon);
+        rotar5down.setIcon(img);
         rotar5down.setBounds(420, 375, 50, 50);
         rotar5down.setBorderPainted(false);
         rotar5down.setContentAreaFilled(false);
@@ -363,44 +398,65 @@ public class Gui implements ActionListener {
         Image resized = rotarImage.getScaledInstance(150, 230, Image.SCALE_SMOOTH);
         ImageIcon resizedRotar = new ImageIcon(resized);
 
+        rotarButtonOne(resizedRotar);
+        rotarButtonTwo(resizedRotar);
+        rotarButtonThree(resizedRotar);
+        rotarButtonFour(resizedRotar);
+        rotarButtonFive(resizedRotar);
+    }
+
+    // Effects: add rotar 1
+    private void rotarButtonOne(ImageIcon img) {
         rotarButton1 = new JButton();
-        rotarButton1.setIcon(resizedRotar);
+        rotarButton1.setIcon(img);
         rotarButton1.setBounds(140, 10, 150, 230);
         rotarButton1.setBorderPainted(false);
         rotarButton1.setContentAreaFilled(false);
         rotarButton1.setFocusPainted(false);
         rotarButton1.addActionListener(this);
         enigmaPanel.add(rotarButton1);
+    }
 
+    // Effects: add rotar 2
+    private void rotarButtonTwo(ImageIcon img) {
         rotarButton2 = new JButton();
-        rotarButton2.setIcon(resizedRotar);
+        rotarButton2.setIcon(img);
         rotarButton2.setBounds(370, 10, 150, 230);
         rotarButton2.setBorderPainted(false);
         rotarButton2.setContentAreaFilled(false);
         rotarButton2.setFocusPainted(false);
         rotarButton2.addActionListener(this);
         enigmaPanel.add(rotarButton2);
+    }
 
+    // Effects: add rotar 3 
+    private void rotarButtonThree(ImageIcon img) {
         rotarButton3 = new JButton();
-        rotarButton3.setIcon(resizedRotar);
+        rotarButton3.setIcon(img);
         rotarButton3.setBounds(600, 10, 150, 230);
         rotarButton3.setBorderPainted(false);
         rotarButton3.setContentAreaFilled(false);
         rotarButton3.setFocusPainted(false);
         rotarButton3.addActionListener(this);
         enigmaPanel.add(rotarButton3);
+    }
         
+    // Effects: add rotar 4
+    private void rotarButtonFour(ImageIcon img) {
         rotarButton4 = new JButton();
-        rotarButton4.setIcon(resizedRotar);
+        rotarButton4.setIcon(img);
         rotarButton4.setBounds(240, 235, 150, 230);
         rotarButton4.setBorderPainted(false);
         rotarButton4.setContentAreaFilled(false);
         rotarButton4.setFocusPainted(false);
         rotarButton4.addActionListener(this);
         enigmaPanel.add(rotarButton4);
+    }
         
+    // Effects: add rotar 5
+    private void rotarButtonFive(ImageIcon img) {
         rotarButton5 = new JButton();
-        rotarButton5.setIcon(resizedRotar);
+        rotarButton5.setIcon(img);
         rotarButton5.setBounds(470, 235, 150, 230);
         rotarButton5.setBorderPainted(false);
         rotarButton5.setContentAreaFilled(false);
@@ -439,30 +495,51 @@ public class Gui implements ActionListener {
 
     // Effects: Creates the number labels for the rotars
     private void rotarNumLabel() {
+        one();
+        two();
+        three();
+        four();
+        five();
+    }
+
+    // Effects: add I label
+    private void one() {
         one = new JLabel();
         one.setText("I");
         one.setBounds(210, 0, 40, 40);
         one.setFont(new Font("Times New Roman", Font.PLAIN, 20));
         enigmaPanel.add(one);
+    }
 
+    // Effects: add II label
+    private void two() { 
         two = new JLabel();
         two.setText("II");
         two.setBounds(440, 0, 40, 40);
         two.setFont(new Font("Times New Roman", Font.PLAIN, 20));
         enigmaPanel.add(two);
-        
+    }
+
+    // Effects: add III label
+    private void three() {   
         three = new JLabel();
         three.setText("III");
         three.setBounds(670, 0, 40, 40);
         three.setFont(new Font("Times New Roman", Font.PLAIN, 20));
         enigmaPanel.add(three);
+    }
 
+    // Effects: add IV label
+    private void four() {
         four = new JLabel();
         four.setText("IV");
         four.setBounds(310, 225, 40, 40);
         four.setFont(new Font("Times New Roman", Font.PLAIN, 20));
         enigmaPanel.add(four);
+    }
 
+    // Effects: add V label
+    private void five() {
         five = new JLabel();
         five.setText("V");
         five.setBounds(540, 225, 40, 40);
@@ -487,6 +564,7 @@ public class Gui implements ActionListener {
 
     // Effects: Handles the actions of the buttons
     @Override
+    @SuppressWarnings("methodlength")
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == enigmaButton) {
             enigmaPanel();
@@ -519,7 +597,7 @@ public class Gui implements ActionListener {
         } else if (e.getSource() == rotar2down) {
             rotar2down();
         } else if (e.getSource() == rotar3up) {
-           rotar3up();
+            rotar3up();
         } else if (e.getSource() == rotar3down) {
             rotar3down();
         } else if (e.getSource() == rotar4up) {
