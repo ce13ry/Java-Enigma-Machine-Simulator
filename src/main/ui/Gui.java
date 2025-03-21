@@ -229,7 +229,7 @@ public class Gui implements ActionListener {
     // Effects: Creates the gregor button
     private void gregorButton() {
         gregorButton = new JButton("My pookie ❤️");
-        gregorButton.setBounds(0, 25, 115, 25);
+        gregorButton.setBounds(0, 25, 120, 25);
         gregorButton.addActionListener(this);
         mainPanel.add(gregorButton);
     }
