@@ -35,3 +35,11 @@ This project is of much interest to me because of the complexity and intricacy o
 - Click load to load rotars
 - Click back to return to main page
 - Type on left page of the notebook to cipher text
+
+# Phase 4: Task 2
+Wed Mar 26 22:02:33 PDT 2025
+Added rotar: 3 with initial position: 14
+Wed Mar 26 22:02:36 PDT 2025
+Added rotar: 2 with initial position: 71
+Wed Mar 26 22:02:42 PDT 2025
+Cleared all rotars

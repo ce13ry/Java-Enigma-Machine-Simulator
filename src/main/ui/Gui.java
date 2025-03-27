@@ -9,13 +9,12 @@ import java.io.IOException;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 // Represents the graphical user interface for the Enigma Machine
 public class Gui implements ActionListener {
     Enigma enigma = new Enigma();
-    private static final String JSON_STORE = "./img/enigma.json";
+    private static final String JSON_STORE = "./data/enigma.json";
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
     private Boolean saved;
@@ -86,8 +85,16 @@ public class Gui implements ActionListener {
         mainPanel = new JPanel();
 
         frame.setSize(800, 600);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         frame.add(mainPanel);
+
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                printLog();
+                frame.dispose();
+            }
+        });
 
         mainPanel.setLayout(null);
         mainPanel.setBackground(Color.WHITE);
@@ -641,7 +648,7 @@ public class Gui implements ActionListener {
     // Effects: Resets the Enigma Machine
     // Modifies: enigma
     private void reset() {
-        enigma.getRotars().clear();
+        enigma.clear();
         rotarLabel();
         saved = false;
     }
@@ -664,6 +671,7 @@ public class Gui implements ActionListener {
         if (!saved) {
             savePrompt();
         }
+        printLog();
         System.exit(0);
     }
 
@@ -831,6 +839,12 @@ public class Gui implements ActionListener {
         mainPanel.revalidate();
         mainPanel.repaint();
         gregorOn = false;
+    }
+
+    private void printLog() {
+        for (model.Event e : EventLog.getInstance()) {
+            System.out.println(e.toString());
+        }
     }
 
     // Effects: Saves the Enigma Machine to file

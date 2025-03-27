@@ -10,11 +10,16 @@ public class Rotar {
     private int rotationPosition;
     private int initialPosition;
 
-    static final String[] SETTING1 = "p7JzgSxbAK0?D8uYReE)H3tl2vkZB,o!FX5n(sIG9COTi1qNU rMhWd4.yLmaPfcQ6wVj".split("");
-    static final String[] SETTING2 = "tN7jQr6ObyGpxYU,E!fgM2F Tn5VL(DXv)1?leJ3z.AdKCk0SsuWiIBaZ4hH8qPcoR9wm".split("");
-    static final String[] SETTING3 = "IbnaRt3sHu)Mk6j.ZeE2xTyFr 1?DNYziLUdqOG!VB74pSXc9Co,Qm(A50hvPlJw8KWgf".split("");
-    static final String[] SETTING4 = "rPo5skDneQdM3y,CLlz!RW19xi(EVvh0uSKBUF.26Xwb?GTJYpjq7AafOtH)cm4NI gZ8".split("");
-    static final String[] SETTING5 = "ZzaYwU5ndNIl2HtTxiu.16vhq?g3pJfBESyO(V9oKG0Wc4F!LCQXb7smM)DrR,A k8Pje".split("");
+    static final String[] SETTING1 = ("p7JzgSxbAK0?D8uYReE)H3tl2vkZB,#o!FX5n(sIG9*COTi1qNU rMhWd4.yLmaPfcQ6wVj")
+            .split("");
+    static final String[] SETTING2 = ("tN7jQr6ObyGpxYU,E!f#gM2F Tn5VL(DXv)*1?leJ3z.AdKCk0SsuWiIBaZ4hH8qPcoR9wm")
+            .split("");
+    static final String[] SETTING3 = ("IbnaRt3sHu)Mk6j.ZeE2xTyFr 1?DNYziLUdqOG!VB74pSXc9Co,Qm(A#50hvPlJw8*KWgf")
+            .split("");
+    static final String[] SETTING4 = ("rPo5sk*DneQdM3y,CLlz!RW19xi(EVvh0uSKBU#F.26Xwb?GTJYpjq7AafOtH)cm4NI gZ8")
+            .split("");
+    static final String[] SETTING5 = ("ZzaYwU5ndNIl2HtTxi#u.16vhq?g3pJfBESyO(V9oKG0Wc4F!LCQXb7smM)DrR,A *k8Pje")
+            .split("");
 
     static final int NUMOFCHARS = Enigma.ALPHABET.length();
 

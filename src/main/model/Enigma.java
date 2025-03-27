@@ -10,8 +10,8 @@ public class Enigma {
 
     private ArrayList<Rotar> rotars;
 
-    private String[] reflector = "SWJEDVZYQCXPOTMLIUANRFBKHGswjedvz qcxpotmliuanrfbkygh9876543210,.?!)(".split("");
-    static final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz 0123456789.,!?()";
+    private String[] reflector = "SWJEDVZYQCXPOTMLIUANRFBKHGswjedvz qcxpotmliuanrfbkygh9876543210,.?!)(*#".split("");
+    static final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz 0123456789.,!?()#*";
 
     // Effect: Creates a machine with no rotars
     public Enigma() {
@@ -19,6 +19,7 @@ public class Enigma {
     }
 
     public void addSetting(int i, int initialPosition) {
+        EventLog.getInstance().logEvent(new Event("Added rotar: " + i + " with initial position: " + initialPosition));
         rotars.add(new Rotar(i, initialPosition));
     }
 
@@ -26,6 +27,7 @@ public class Enigma {
     // Modifies: this
     // Requires: i is a valid position
     public void remove(int i) {
+        EventLog.getInstance().logEvent(new Event("Removed rotar: " + i));
         rotars.remove(rotars.get(i - 1));
     }
 
@@ -108,6 +110,13 @@ public class Enigma {
     // Effect: Returns the default letter at the given position
     public String getDefaultLetter(int i) {
         return ALPHABET.substring(i, i + 1);
+    }
+
+    // Effect: Clears all rotars
+    // Modifies: this
+    public void clear() {
+        EventLog.getInstance().logEvent(new Event("Cleared all rotars"));
+        rotars.clear();
     }
 
     // Effect: Array -> String
