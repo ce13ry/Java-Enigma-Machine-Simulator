@@ -786,7 +786,6 @@ public class Gui implements ActionListener {
     // Effects: Ciphers the text
     private String cipher(String text) {
         if (enigma.getRotars().isEmpty()) {
-            System.out.println("No settings to cipher");
             return "";
         } else if (text.equals("")) {
             return "";

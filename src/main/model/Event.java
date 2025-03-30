@@ -3,7 +3,6 @@ package model;
 import java.util.Calendar;
 import java.util.Date;
 
-
 /**
  * Represents an alarm system event.
  */
@@ -12,44 +11,49 @@ public class Event {
     private Date dateLogged;
     private String description;
 
-	/**
-	 * Creates an event with the given description
-	 * and the current date/time stamp.
-	 * @param description  a description of the event
-	 */
+    /**
+     * Creates an event with the given description
+     * and the current date/time stamp.
+     * 
+     * @param description a description of the event
+     */
     public Event(String description) {
         dateLogged = Calendar.getInstance().getTime();
         this.description = description;
     }
-	
-	/**
-	 * Gets the date of this event (includes time).
-	 * @return  the date of the event
-	 */
+
+    /**
+     * Gets the date of this event (includes time).
+     * 
+     * @return the date of the event
+     */
     public Date getDate() {
         return dateLogged;
     }
 
-	/**
-	 * Gets the description of this event.
-	 * @return  the description of the event
-	 */
+    /**
+     * Gets the description of this event.
+     * 
+     * @return the description of the event
+     */
     public String getDescription() {
         return description;
     }
-	
+
     @Override
-	public boolean equals(Object other) {
-        if (other == null)
+    public boolean equals(Object other) {
+        if (other == null) {
             return false;
-		
-        if (other.getClass() != this.getClass())
-			return false;
-		
+        }
+
+        if (other.getClass() != this.getClass()) {
+            return false;
+        }
+
         Event otherEvent = (Event) other;
 
-        return (this.dateLogged.equals(otherEvent.dateLogged) &&
-                this.description.equals(otherEvent.description));
+        return (this.dateLogged.equals(otherEvent.dateLogged)
+                && this.description.equals(otherEvent.description));
     }
 
     @Override

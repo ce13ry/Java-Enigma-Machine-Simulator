@@ -1,4 +1,10 @@
-{"rotars": [{
-    "i": 3,
-    "initialPosition": 14
-}]}
+{"rotars": [
+    {
+        "i": 3,
+        "initialPosition": 14
+    },
+    {
+        "i": 2,
+        "initialPosition": 71
+    }
+]}

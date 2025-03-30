@@ -2,7 +2,7 @@
 
 package persistence;
 
-import model.*;
+import model.Enigma;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
