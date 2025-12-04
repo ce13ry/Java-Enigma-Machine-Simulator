@@ -234,12 +234,12 @@ public class Gui implements ActionListener {
     }
 
     // Effects: Creates the gregor button
-    private void gregorButton() {
-        gregorButton = new JButton("My pookie ❤️");
-        gregorButton.setBounds(0, 25, 120, 25);
-        gregorButton.addActionListener(this);
-        mainPanel.add(gregorButton);
-    }
+    // private void gregorButton() {
+    // gregorButton = new JButton("My pookie ❤️");
+    //  gregorButton.setBounds(0, 25, 120, 25);
+    //  gregorButton.addActionListener(this);
+    // mainPanel.add(gregorButton);
+    // }
 
     // Effects: Creates the back button
     private void backButton() {
