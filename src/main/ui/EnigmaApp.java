@@ -65,7 +65,7 @@ public class EnigmaApp {
             System.out.println("Settings: " + options());
         }
         System.out.println("Enter 's' to add a setting");
-        System.out.println("Enter 'r' to remove a rotar");
+        System.out.println("Enter 'r' to remove a rotor");
         System.out.println("Enter 'e' to encrypt/decrypt a string");
         System.out.println("Enter 'c' to clear settings");
         System.out.println("Enter 'u' to upload settings");
@@ -106,7 +106,7 @@ public class EnigmaApp {
 
     // EFFECTS: processes the user command for adding a setting
     // MODIFIES: enigma
-    // MODIFIES: rotar
+    // MODIFIES: rotor
     private void setting() {
         System.out.println("Enter the setting number (1-5): ");
         int setting = input.nextInt();
@@ -120,13 +120,13 @@ public class EnigmaApp {
         addSetting(setting, initial);
     }
 
-    // EFFECTS: processes the user command for removing a rotar
+    // EFFECTS: processes the user command for removing a rotor
     // MODIFIES: enigma
     private void remove() {
-        System.out.println("Enter position of the rotar desired to be removed " + options() + ": ");
+        System.out.println("Enter position of the rotor desired to be removed " + options() + ": ");
         int remove = input.nextInt();
         input.nextLine();
-        if (remove < 1 || remove > enigma.getRotars().size()) {
+        if (remove < 1 || remove > enigma.getrotors().size()) {
             fail();
             return;
         }
@@ -135,9 +135,9 @@ public class EnigmaApp {
 
     // EFFECTS: processes the user command for encrypting/decrypting a string
     // MODIFIES: enigma
-    // MODIFIES: rotar
+    // MODIFIES: rotor
     private void cipher() {
-        if (enigma.getRotars().isEmpty()) {
+        if (enigma.getrotors().isEmpty()) {
             System.out.println("No settings to cipher");
             return;
         }
@@ -149,13 +149,13 @@ public class EnigmaApp {
     // EFFECTS: clears all settings
     // MODIFIES: enigma
     private void clear() {
-        enigma.getRotars().clear();
+        enigma.getrotors().clear();
     }
 
     // EFFECTS: returns the options for the user
     private String options() {
         String options = "";
-        for (Rotar r : enigma.getRotars()) {
+        for (rotor r : enigma.getrotors()) {
             options += r.getSettingNum() + " (" + r.getInitialPosition() + ")" + ", ";
         }
         return options;
