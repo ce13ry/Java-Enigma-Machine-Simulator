@@ -2,8 +2,8 @@ package model;
 
 import org.json.JSONObject;
 
-// represents a rotar with initial position
-public class Rotar {
+// represents a rotor with initial position
+public class Rotor {
 
     private String[] setting;
     private int settingNum;
@@ -23,11 +23,11 @@ public class Rotar {
 
     static final int NUMOFCHARS = Enigma.ALPHABET.length();
 
-    // Effect: Creates a rotar with the given setting (out of 5 possible settings)
+    // Effect: Creates a rotor with the given setting (out of 5 possible settings)
     // and sets canRotate to false
     // Requires: setting is an integer between 1 and 5
     @SuppressWarnings("methodlength")
-    public Rotar(int setting, int initialPosition) {
+    public Rotor(int setting, int initialPosition) {
         this.setting = new String[NUMOFCHARS];
         switch (setting) {
             case 1:
@@ -96,7 +96,7 @@ public class Rotar {
         }
     }
 
-    // Effect: Rotates the rotar by one position
+    // Effect: Rotates the rotor by one position
     // Modifies: this
     public void rotate() {
         String first = setting[0];
