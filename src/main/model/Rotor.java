@@ -60,10 +60,10 @@ public class Rotor {
         }
     }
 
-    // Effect: Resets the rotar to its default setting
+    // Effect: Resets the rotor to its default setting
     // Modifies: this
-    // Requires: r is a valid rotar
-    public static void reset(Rotar r) {
+    // Requires: r is a valid rotor
+    public static void reset(rotor r) {
         int i = r.getSettingNum();
         switch (i) {
             case 1:
