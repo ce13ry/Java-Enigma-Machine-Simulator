@@ -81,7 +81,7 @@ public class Gui implements ActionListener {
 
     // Effects: Creates the main frame for the GUI
     private void mainFrame() {
-        frame = new JFrame("Engima Machine");
+        frame = new JFrame("Enigma Machine");
         mainPanel = new JPanel();
 
         frame.setSize(800, 600);
