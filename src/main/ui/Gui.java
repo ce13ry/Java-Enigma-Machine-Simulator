@@ -207,7 +207,7 @@ public class Gui implements ActionListener {
     // Effects: Creates the main buttons for the GUI
     private void addMainButtons() {
         quitButton();
-        gregorButton();
+        //gregorButton();
     }
 
     // Effects: Creates the buttons for the Enigma Machine
@@ -677,7 +677,7 @@ public class Gui implements ActionListener {
 
     // Effects: Increases rotor 1 inital position by one
     private void rotor1up() {
-        if (rotor1 >= rotor.getNumOfChars()) {
+        if (rotor1 >= Rotor.getNumOfChars()) {
             rotor1 = 0;
         } else {
             rotor1++;
@@ -688,7 +688,7 @@ public class Gui implements ActionListener {
     // Effects: Decreases rotor 1 inital position by one
     private void rotor1down() {
         if (rotor1 <= 0) {
-            rotor1 = rotor.getNumOfChars();
+            rotor1 = Rotor.getNumOfChars();
         } else {
             rotor1--;
         }
@@ -697,7 +697,7 @@ public class Gui implements ActionListener {
 
     // Effects: Increases rotor 2 inital position by one
     private void rotor2up() {
-        if (rotor2 >= rotor.getNumOfChars()) {
+        if (rotor2 >= Rotor.getNumOfChars()) {
             rotor2 = 0;
         } else {
             rotor2++;
@@ -708,7 +708,7 @@ public class Gui implements ActionListener {
     // Effects: Decreases rotor 2 inital position by one
     private void rotor2down() {
         if (rotor2 <= 0) {
-            rotor2 = rotor.getNumOfChars();
+            rotor2 = Rotor.getNumOfChars();
         } else {
             rotor2--;
         }
@@ -717,7 +717,7 @@ public class Gui implements ActionListener {
 
     // Effects: Increases rotor 3 inital position by one
     private void rotor3up() {
-        if (rotor3 >= rotor.getNumOfChars()) {
+        if (rotor3 >= Rotor.getNumOfChars()) {
             rotor3 = 0;
         } else {
             rotor3++;
@@ -728,7 +728,7 @@ public class Gui implements ActionListener {
     // Effects: Decreases rotor 3 inital position by one
     private void rotor3down() {
         if (rotor3 <= 0) {
-            rotor3 = rotor.getNumOfChars();
+            rotor3 = Rotor.getNumOfChars();
         } else {
             rotor3--;
         }
@@ -737,7 +737,7 @@ public class Gui implements ActionListener {
 
     // Effects: Increases rotor 4 inital position by one
     private void rotor4up() {
-        if (rotor4 >= rotor.getNumOfChars()) {
+        if (rotor4 >= Rotor.getNumOfChars()) {
             rotor4 = 0;
         } else {
             rotor4++;
@@ -748,7 +748,7 @@ public class Gui implements ActionListener {
     // Effects: Decreases rotor 4 inital position by one
     private void rotor4down() {
         if (rotor4 <= 0) {
-            rotor4 = rotor.getNumOfChars();
+            rotor4 = Rotor.getNumOfChars();
         } else {
             rotor4--;
         }
@@ -757,7 +757,7 @@ public class Gui implements ActionListener {
 
     // Effects: Increases rotor 5 inital position by one
     private void rotor5up() {
-        if (rotor5 >= rotor.getNumOfChars()) {
+        if (rotor5 >= Rotor.getNumOfChars()) {
             rotor5 = 0;
         } else {
             rotor5++;
@@ -768,7 +768,7 @@ public class Gui implements ActionListener {
     // Effects: Decreases rotor 5 inital position by one
     private void rotor5down() {
         if (rotor5 <= 0) {
-            rotor5 = rotor.getNumOfChars();
+            rotor5 = Rotor.getNumOfChars();
         } else {
             rotor5--;
         }
@@ -796,7 +796,7 @@ public class Gui implements ActionListener {
     // Effects: Returns the settings of the rotors
     private String settings() {
         String settings = "";
-        for (rotor r : enigma.getrotors()) {
+        for (Rotor r : enigma.getrotors()) {
             settings += r.getSettingNum() + " (" + r.getInitialPosition() + ")" + ", ";
         }
         return settings;

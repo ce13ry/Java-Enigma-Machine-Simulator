@@ -63,7 +63,7 @@ public class Rotor {
     // Effect: Resets the rotor to its default setting
     // Modifies: this
     // Requires: r is a valid rotor
-    public static void reset(rotor r) {
+    public static void reset(Rotor r) {
         int i = r.getSettingNum();
         switch (i) {
             case 1:

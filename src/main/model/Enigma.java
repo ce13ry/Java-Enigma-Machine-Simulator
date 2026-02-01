@@ -8,7 +8,7 @@ import org.json.JSONObject;
 // represents an enigma machine with a collection of rotors
 public class Enigma {
 
-    private ArrayList<rotor> rotors;
+    private ArrayList<Rotor> rotors;
 
     private String[] reflector = "SWJEDVZYQCXPOTMLIUANRFBKHGswjedvz qcxpotmliuanrfbkygh9876543210,.?!)(*#".split("");
     static final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz 0123456789.,!?()#*";
@@ -20,7 +20,7 @@ public class Enigma {
 
     public void addSetting(int i, int initialPosition) {
         EventLog.getInstance().logEvent(new Event("Added rotor: " + i + " with initial position: " + initialPosition));
-        rotors.add(new rotor(i, initialPosition));
+        rotors.add(new Rotor(i, initialPosition));
     }
 
     // Effect: Removes the rotor at the given position
@@ -39,8 +39,8 @@ public class Enigma {
     public String cipher(String in) {
 
         // reset all rotors
-        for (rotor r : rotors) {
-            rotor.reset(r);
+        for (Rotor r : rotors) {
+            Rotor.reset(r);
         }
         
         String[] input = in.split("");
@@ -56,7 +56,7 @@ public class Enigma {
             int character = defaultPosition(c);
 
             // forward direction
-            for (rotor r : rotors) {
+            for (Rotor r : rotors) {
                 input[pos] = r.getLetter(character);
                 character = defaultPosition(input[pos]);
             }
@@ -93,7 +93,7 @@ public class Enigma {
     }
 
     // Effect: Returns the position of the given letter in the given rotor
-    public int getLetterPosition(String letter, rotor rotor) {
+    public int getLetterPosition(String letter, Rotor rotor) {
         for (int i = 0; i < rotor.NUMOFCHARS; i++) {
             if (rotor.getLetter(i).equals(letter)) {
                 return i;
@@ -128,7 +128,7 @@ public class Enigma {
         return output;
     }
 
-    public ArrayList<rotor> getrotors() {
+    public ArrayList<Rotor> getrotors() {
         return rotors;
     }
 
@@ -152,7 +152,7 @@ public class Enigma {
     private JSONArray rotorsToJson() {
         JSONArray jsonArray = new JSONArray();
 
-        for (rotor r : rotors) {
+        for (Rotor r : rotors) {
             jsonArray.put(r.toJson());
         }
 

@@ -155,7 +155,7 @@ public class EnigmaApp {
     // EFFECTS: returns the options for the user
     private String options() {
         String options = "";
-        for (rotor r : enigma.getrotors()) {
+        for (Rotor r : enigma.getrotors()) {
             options += r.getSettingNum() + " (" + r.getInitialPosition() + ")" + ", ";
         }
         return options;
