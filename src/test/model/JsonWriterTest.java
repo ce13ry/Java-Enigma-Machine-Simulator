@@ -34,7 +34,7 @@ class JsonWriterTest extends JsonTest {
 
             JsonReader reader = new JsonReader("./data/testWriterEmptyWorkroom.json");
             enigma = reader.read();
-            assertEquals(0, enigma.getRotars().size());
+            assertEquals(0, enigma.getRotors().size());
         } catch (IOException e) {
             fail("Exception should not have been thrown");
         }
@@ -53,7 +53,7 @@ class JsonWriterTest extends JsonTest {
 
             JsonReader reader = new JsonReader("./data/testWriterGeneralWorkroom.json");
             enigma = reader.read();
-            List<Rotar> rotars = enigma.getRotars();
+            List<Rotor> rotars = enigma.getRotors();
             assertEquals(2, rotars.size());
             checkRotar(3, 14, rotars.get(0));
             checkRotar(2, 71, rotars.get(1));
