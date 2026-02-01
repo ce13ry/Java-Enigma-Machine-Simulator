@@ -126,7 +126,7 @@ public class EnigmaApp {
         System.out.println("Enter position of the rotor desired to be removed " + options() + ": ");
         int remove = input.nextInt();
         input.nextLine();
-        if (remove < 1 || remove > enigma.getrotors().size()) {
+        if (remove < 1 || remove > enigma.getRotors().size()) {
             fail();
             return;
         }
@@ -137,7 +137,7 @@ public class EnigmaApp {
     // MODIFIES: enigma
     // MODIFIES: rotor
     private void cipher() {
-        if (enigma.getrotors().isEmpty()) {
+        if (enigma.getRotors().isEmpty()) {
             System.out.println("No settings to cipher");
             return;
         }
@@ -149,13 +149,13 @@ public class EnigmaApp {
     // EFFECTS: clears all settings
     // MODIFIES: enigma
     private void clear() {
-        enigma.getrotors().clear();
+        enigma.getRotors().clear();
     }
 
     // EFFECTS: returns the options for the user
     private String options() {
         String options = "";
-        for (Rotor r : enigma.getrotors()) {
+        for (Rotor r : enigma.getRotors()) {
             options += r.getSettingNum() + " (" + r.getInitialPosition() + ")" + ", ";
         }
         return options;

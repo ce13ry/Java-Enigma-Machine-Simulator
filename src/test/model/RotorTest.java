@@ -7,16 +7,16 @@ import org.junit.jupiter.api.Test;
 
 public class RotorTest {
 
-    rotor rotor;
+    Rotor rotor;
 
     @BeforeEach
     void runBefore() {
-        rotor = new rotor(1, 0);
+        rotor = new Rotor(1, 0);
     }
 
     @Test
     void setting1Test() {
-        rotor = new rotor(1, 0);
+        rotor = new Rotor(1, 0);
         assertEquals(rotor.getSettingNum(), 1);
 
         for (int i = 0; i < rotor.getSetting().length; i++) {
@@ -26,7 +26,7 @@ public class RotorTest {
 
     @Test
     void setting2Test() {
-        rotor = new rotor(2, 0);
+        rotor = new Rotor(2, 0);
         assertEquals(rotor.getSettingNum(), 2);
 
         for (int i = 0; i < rotor.getSetting().length; i++) {
@@ -36,7 +36,7 @@ public class RotorTest {
 
     @Test
     void setting3Test() {
-        rotor = new rotor(3, 0);
+        rotor = new Rotor(3, 0);
         assertEquals(rotor.getSettingNum(), 3);
 
         for (int i = 0; i < rotor.getSetting().length; i++) {
@@ -46,7 +46,7 @@ public class RotorTest {
 
     @Test
     void setting4Test() {
-        rotor = new rotor(4, 0);
+        rotor = new Rotor(4, 0);
         assertEquals(rotor.getSettingNum(), 4);
 
         for (int i = 0; i < rotor.getSetting().length; i++) {
@@ -56,7 +56,7 @@ public class RotorTest {
 
     @Test
     void setting5Test() {
-        rotor = new rotor(5, 0);
+        rotor = new Rotor(5, 0);
         assertEquals(rotor.getSettingNum(), 5);
         
         for (int i = 0; i < rotor.getSetting().length; i++) {
@@ -66,7 +66,7 @@ public class RotorTest {
 
     @Test
     void wrongSettingTest() {
-        rotor = new rotor(6, 0);
+        rotor = new Rotor(6, 0);
         for (int i = 0; i < rotor.getSetting().length; i++) {
             assertEquals(rotor.getSetting()[i], null);     
         }

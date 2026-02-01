@@ -785,7 +785,7 @@ public class Gui implements ActionListener {
 
     // Effects: Ciphers the text
     private String cipher(String text) {
-        if (enigma.getrotors().isEmpty()) {
+        if (enigma.getRotors().isEmpty()) {
             return "";
         } else if (text.equals("")) {
             return "";
@@ -796,7 +796,7 @@ public class Gui implements ActionListener {
     // Effects: Returns the settings of the rotors
     private String settings() {
         String settings = "";
-        for (Rotor r : enigma.getrotors()) {
+        for (Rotor r : enigma.getRotors()) {
             settings += r.getSettingNum() + " (" + r.getInitialPosition() + ")" + ", ";
         }
         return settings;

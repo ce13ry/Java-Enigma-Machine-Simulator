@@ -83,10 +83,10 @@ public class Enigma {
     // Modifies rotors
     public void update(int n) {
         
-        getrotors().get(n).rotate();
+        getRotors().get(n).rotate();
 
-        if (getrotors().get(n).getRotatePosition() == 0) {
-            if (n < getrotors().size() - 1) {
+        if (getRotors().get(n).getRotatePosition() == 0) {
+            if (n < getRotors().size() - 1) {
                 update(n + 1);
             }
         }
@@ -128,7 +128,7 @@ public class Enigma {
         return output;
     }
 
-    public ArrayList<Rotor> getrotors() {
+    public ArrayList<Rotor> getRotors() {
         return rotors;
     }
 
