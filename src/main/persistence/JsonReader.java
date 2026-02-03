@@ -43,23 +43,23 @@ public class JsonReader {
     // EFFECTS: parses workroom from JSON object and returns it
     private Enigma parseEnigma(JSONObject jsonObject) {
         Enigma enigma = new Enigma();
-        addRotars(enigma, jsonObject);
+        addRotors(enigma, jsonObject);
         return enigma;
     }
 
     // MODIFIES: enigma
-    // EFFECTS: parses rotars from JSON object and adds them to enigma
-    private void addRotars(Enigma enigma, JSONObject jsonObject) {
-        JSONArray jsonArray = jsonObject.getJSONArray("rotars");
+    // EFFECTS: parses rotors from JSON object and adds them to enigma
+    private void addRotors(Enigma enigma, JSONObject jsonObject) {
+        JSONArray jsonArray = jsonObject.getJSONArray("rotors");
         for (Object json : jsonArray) {
-            JSONObject nextRotar = (JSONObject) json;
-            addRotar(enigma, nextRotar);
+            JSONObject nextRotor = (JSONObject) json;
+            addRotor(enigma, nextRotor);
         }
     }
 
     // MODIFIES: enigma
-    // EFFECTS: parses rotar from JSON object and adds it to enigma
-    private void addRotar(Enigma enigma, JSONObject jsonObject) {
+    // EFFECTS: parses rotor from JSON object and adds it to enigma
+    private void addRotor(Enigma enigma, JSONObject jsonObject) {
         int i = jsonObject.getInt("i");
         int initialPosition = jsonObject.getInt("initialPosition");
         enigma.addSetting(i, initialPosition);
