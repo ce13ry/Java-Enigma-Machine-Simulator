@@ -34,7 +34,7 @@ public class EnigmaApp {
         enigma = new Enigma();
 
         while (running) {
-            
+
             displayOptions();
 
             String command = input.nextLine();
@@ -75,7 +75,7 @@ public class EnigmaApp {
 
     // EFFECTS: processes the user command
     @SuppressWarnings("methodlength")
-    private void processCommand(String command) { 
+    private void processCommand(String command) {
         switch (command) {
             case "s":
                 saved = false;
